@@ -48,7 +48,8 @@
   if (location.hash) {
     requestAnimationFrame(function () {
       var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-      if (el) el.scrollIntoView({ block: "start" });
+      // Instant, not smooth: a load-time smooth scroll gets cancelled on mobile.
+      if (el) el.scrollIntoView({ block: "start", behavior: "instant" });
     });
   }
 })();

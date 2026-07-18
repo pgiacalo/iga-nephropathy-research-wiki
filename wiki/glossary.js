@@ -76,14 +76,19 @@
       var id = decodeURIComponent(location.hash.slice(1));
       if (!id) return;
       // The list is rendered by JS, so the browser's own jump-to-anchor on load
-      // misses it. Scroll after the next paint, once the entry exists.
-      requestAnimationFrame(function () {
+      // misses it. Retry until the entry exists, then jump INSTANTLY — a smooth
+      // scroll started during load gets cancelled on mobile (address-bar/reflow).
+      var tries = 0;
+      (function attempt() {
         var el = document.getElementById(id);
-        if (!el) return;
-        el.scrollIntoView({ block: "start", behavior: "auto" });
-        el.classList.add("gloss-flash");
-        setTimeout(function () { el.classList.remove("gloss-flash"); }, 2200);
-      });
+        if (el) {
+          el.scrollIntoView({ block: "start", behavior: "instant" });
+          el.classList.add("gloss-flash");
+          setTimeout(function () { el.classList.remove("gloss-flash"); }, 2200);
+        } else if (tries++ < 8) {
+          setTimeout(attempt, 60);
+        }
+      })();
     }
     flashHash();
     window.addEventListener("hashchange", flashHash);
