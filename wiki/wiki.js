@@ -26,7 +26,11 @@
   var here = location.pathname.split('/').pop() || 'index.html';
 
   var html = '' +
-    '<div class="brand"><span class="logo">🩺</span> IgAN Research Wiki</div>' +
+    '<div class="sidebar-header">' +
+      '<div class="brand"><span class="logo">🩺</span> IgAN Research Wiki</div>' +
+      '<button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>' +
+    '</div>' +
+    '<div class="nav-body">' +
     '<form class="search-box" onsubmit="return wikiSearchSubmit(event)">' +
     '<input type="search" id="navSearch" placeholder="Search the wiki…" aria-label="Search the wiki">' +
     '</form>';
@@ -39,9 +43,26 @@
       html += '<a href="' + item.href + '"' + active + '>' + item.label + '</a>';
     }
   });
+  html += '</div>'; // .nav-body
 
   var nav = document.querySelector('nav.sidebar');
-  if (nav) nav.innerHTML = html;
+  if (nav) {
+    nav.innerHTML = html;
+    var toggle = nav.querySelector('.nav-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // Tapping a link closes the menu (so same-page anchors reveal content).
+      nav.querySelectorAll('.nav-body a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  }
 
   // Reinforce scroll-to-anchor on initial load, in case layout shifted after
   // the browser's native jump. (Dynamic pages like the glossary do their own.)

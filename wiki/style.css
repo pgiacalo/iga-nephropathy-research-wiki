@@ -71,6 +71,12 @@ body {
   color: #fff;
   font-weight: 600;
 }
+.sidebar-header { display: flex; align-items: center; justify-content: space-between; }
+.nav-toggle {
+  display: none; /* desktop: hidden; shown only on mobile */
+  background: none; border: none; color: var(--ink);
+  font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 4px 10px;
+}
 
 /* Main */
 .main {
@@ -226,6 +232,24 @@ tr:hover td { background: #fafbfc; }
 .change .date { color: var(--muted); font-size: 0.8rem; font-weight: 600; }
 
 @media (max-width: 780px) {
-  .sidebar { position: static; width: auto; border-right: none; border-bottom: 1px solid var(--line); }
-  .main { margin-left: 0; padding: 24px; }
+  /* Nav becomes a slim fixed top bar; the link list is collapsed behind a
+     menu button so each page opens with its CONTENT at the top, not the index. */
+  .sidebar {
+    position: fixed; top: 0; left: 0; right: 0; bottom: auto;
+    width: auto; padding: 0; z-index: 50;
+    border-right: none; border-bottom: 1px solid var(--line);
+  }
+  .sidebar-header { padding: 8px 14px; }
+  .sidebar-header .brand { padding: 0; font-size: 0.98rem; }
+  .nav-toggle { display: block; }
+  .nav-body {
+    display: none;
+    padding: 6px 12px 16px;
+    max-height: 78vh; overflow-y: auto;
+    border-top: 1px solid var(--line);
+  }
+  .sidebar.open .nav-body { display: block; }
+  .main { margin-left: 0; padding: 68px 20px 60px; }
+  /* Keep anchored targets clear of the fixed top bar. */
+  [id] { scroll-margin-top: 66px; }
 }
