@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Disease Mechanism — IgAN Research Wiki</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="sidebar"></nav>
+
+<main class="main">
+  <h1>Disease Mechanism — The 4-Hit Model</h1>
+  <p class="subtitle">Each hit is a distinct, druggable node. Prevention aims at the early hits; reversal aims at the late ones.</p>
+  <p class="updated">Last updated: 2026-07-18 · First discussed in <a href="conversations.html#c1">Conversation 1</a></p>
+
+  <p>IgA nephropathy is driven by a well-characterized four-step cascade. The value of the model is that
+  every hit is a separate therapeutic target, which lets us map candidate treatments cleanly onto our two
+  <a href="index.html">research aims</a>.</p>
+
+  <h2>Hit 1 — Overproduction of galactose-deficient IgA1 (Gd-IgA1)</h2>
+  <p>Mucosal B cells produce IgA1 whose hinge-region O-glycans are under-galactosylated, exposing
+  <em>N</em>-acetylgalactosamine (GalNAc). This is the <strong>malformed protein</strong> at the center of the
+  disease. Contributing factors:</p>
+  <ul>
+    <li><strong>Aberrant mucosal immunity</strong> — gut-associated lymphoid tissue (Peyer's patches) and the
+    <strong>APRIL / BAFF</strong> cytokine axis drive excess IgA1 production.</li>
+    <li><strong>Glycosyltransferase dysregulation</strong> — reduced activity of <strong>C1GALT1</strong> and its
+    chaperone <strong>Cosmc</strong>, the enzymes that add galactose to the hinge glycans.</li>
+  </ul>
+  <div class="callout q">
+    <strong>Why it matters for us:</strong> Hit 1 is where the "fix the malformed protein / prevent it from
+    malforming" aim lives. See <a href="aim-prevention.html">Aim 1</a>.
+  </div>
+
+  <h2>Hit 2 — Anti-glycan autoantibodies</h2>
+  <p>Circulating IgG (and some IgA) autoantibodies recognize the exposed GalNAc epitope on Gd-IgA1. Their
+  production is what turns a glycosylation quirk into an autoimmune process.</p>
+
+  <h2>Hit 3 — Immune complex formation</h2>
+  <p>Gd-IgA1 and the anti-glycan autoantibodies bind to form circulating immune complexes. These are larger,
+  clearance-resistant, and pathogenic.</p>
+
+  <h2>Hit 4 — Mesangial deposition, complement activation, injury</h2>
+  <p>Immune complexes deposit in the glomerular <strong>mesangium</strong> ("clogging" the filter), then activate
+  <strong>complement</strong> — predominantly the <strong>alternative</strong> and <strong>lectin</strong> pathways
+  (the classical pathway is largely spared). This drives mesangial proliferation, inflammation, proteinuria, and
+  ultimately <strong>glomerulosclerosis and interstitial fibrosis</strong>.</p>
+  <div class="callout warn">
+    <strong>The hard problem:</strong> once fibrosis is established, reversing it is the least-solved part of the
+    field. See <a href="aim-reversal.html">Aim 2</a>.
+  </div>
+
+  <h2>At a glance</h2>
+  <table>
+    <thead><tr><th>Hit</th><th>Event</th><th>Key targets</th><th>Serves aim</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Gd-IgA1 overproduction</td><td>APRIL, BAFF, C1GALT1/Cosmc, gut mucosa</td><td>Prevention</td></tr>
+      <tr><td>2</td><td>Anti-glycan autoantibodies</td><td>Plasma cells, B-cell axis</td><td>Prevention</td></tr>
+      <tr><td>3</td><td>Immune complexes</td><td>Complex clearance</td><td>Prevention / Reversal</td></tr>
+      <tr><td>4</td><td>Deposition + complement + fibrosis</td><td>Factor B, MASP-2, C3, C5, ETA, RAAS</td><td>Reversal</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">See the full drug list in the <a href="therapies.html">Therapy &amp; Target Catalog</a>.</div>
+</main>
+<script src="wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search — IgAN Research Wiki</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="sidebar"></nav>
+
+<main class="main">
+  <h1>Search</h1>
+  <p class="subtitle">Type to filter across every page in the wiki. Works fully offline.</p>
+  <form onsubmit="return runSearch(event)">
+    <input type="search" id="q" placeholder="Search terms…" autofocus
+      style="width:100%;max-width:520px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:1rem;">
+  </form>
+  <div class="search-meta" id="meta"></div>
+  <div id="results"></div>
+</main>
+
+<script src="search-index.js"></script>
+<script>
+function escapeHtml(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function highlight(text, terms){
+  var out = escapeHtml(text);
+  terms.forEach(function(t){
+    if(!t) return;
+    var re = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','ig');
+    out = out.replace(re,'<mark>$1</mark>');
+  });
+  return out;
+}
+function runSearch(e){ if(e) e.preventDefault(); render(document.getElementById('q').value); return false; }
+function render(query){
+  var q = (query||'').trim().toLowerCase();
+  var terms = q.split(/\s+/).filter(Boolean);
+  var results = document.getElementById('results');
+  var meta = document.getElementById('meta');
+  if(!terms.length){ results.innerHTML=''; meta.textContent='Enter a search term above.'; return; }
+  var hits = SEARCH_INDEX.map(function(p){
+    var hay = (p.title + ' ' + p.text).toLowerCase();
+    var score = terms.reduce(function(s,t){ return s + (hay.indexOf(t)>-1 ? 1 : 0); }, 0);
+    return {p:p, score:score};
+  }).filter(function(h){ return h.score>0; })
+    .sort(function(a,b){ return b.score-a.score; });
+  meta.textContent = hits.length + ' page' + (hits.length===1?'':'s') + ' match “' + query.trim() + '”.';
+  results.innerHTML = hits.map(function(h){
+    var snippet = h.p.text.length>180 ? h.p.text.slice(0,180)+'…' : h.p.text;
+    return '<a class="search-result" href="'+h.p.url+'">' +
+      '<div class="sr-title">'+highlight(h.p.title,terms)+'</div>' +
+      '<div class="sr-url">'+h.p.url+'</div>' +
+      '<div class="sr-text">'+highlight(snippet,terms)+'</div></a>';
+  }).join('');
+}
+document.getElementById('q').addEventListener('input', function(){ render(this.value); });
+(function(){
+  var m = location.search.match(/[?&]q=([^&]*)/);
+  if(m){ var v = decodeURIComponent(m[1].replace(/\+/g,' ')); document.getElementById('q').value = v; render(v); }
+  else { document.getElementById('meta').textContent = 'Enter a search term above.'; }
+})();
+</script>
+<script src="wiki.js"></script>
+</body>
+</html>

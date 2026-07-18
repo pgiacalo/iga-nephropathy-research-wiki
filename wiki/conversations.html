@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conversations — IgAN Research Wiki</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="sidebar"></nav>
+
+<main class="main">
+  <h1>Conversations Log</h1>
+  <p class="subtitle">The dated, chronological index. Each entry summarizes a conversation and links into the topic pages where its content lives.</p>
+  <p class="updated">Last updated: 2026-07-18</p>
+
+  <div class="conv" id="c1">
+    <div class="date">2026-07-18 · Conversation 1</div>
+    <h3>Project kickoff — mechanism &amp; treatment landscape</h3>
+    <p>Established the project's two aims and mapped the therapeutic landscape onto the
+    <a href="mechanism.html">4-hit disease model</a>.</p>
+    <ul>
+      <li>Laid out the 4-hit cascade from <strong>Gd-IgA1</strong> production to complement-driven fibrosis →
+      <a href="mechanism.html">Disease Mechanism</a>.</li>
+      <li>Mapped upstream therapies (APRIL/BAFF inhibitors, Nefecon, C1GALT1/Cosmc) to
+      <a href="aim-prevention.html">Aim 1 · Prevention</a>.</li>
+      <li>Mapped downstream therapies (complement inhibitors, sparsentan, SGLT2i) to
+      <a href="aim-reversal.html">Aim 2 · Reversal</a>.</li>
+      <li>Identified the two hardest/highest-value gaps: correcting the <strong>C1GALT1/Cosmc</strong>
+      glycosylation defect, and <strong>reversing established fibrosis</strong> →
+      <a href="open-questions.html">Open Questions</a>.</li>
+      <li>Full drug list captured in the <a href="therapies.html">Therapy &amp; Target Catalog</a>.</li>
+    </ul>
+    <div class="tag-row">
+      <span class="pill">mechanism</span>
+      <span class="pill">landscape</span>
+      <span class="pill research">C1GALT1/Cosmc</span>
+      <span class="pill research">fibrosis reversal</span>
+    </div>
+  </div>
+
+  <div class="conv" id="c2">
+    <div class="date">2026-07-18 · Conversation 2</div>
+    <h3>Set up the project wiki + verification pass</h3>
+    <p>Built this HTML wiki (topic-organized), recorded maintenance conventions and standing directives in
+    <code>CLAUDE.md</code>, then implemented a set of enhancements:</p>
+    <ul>
+      <li>Added offline <a href="search.html">client-side search</a> and this <a href="changelog.html">changelog</a>;
+      moved the sidebar nav into <code>wiki.js</code> (single source of truth).</li>
+      <li>Promoted the two hard problems to their own pages:
+      <a href="hardproblem-glycosylation.html">fixing the Gd-IgA1 glycosylation defect</a> and
+      <a href="hardproblem-fibrosis.html">reversing established fibrosis</a> — with verified, cited biology.</li>
+      <li><strong>Ran a live verification pass on the drug landscape</strong> and updated the
+      <a href="therapies.html">Therapy &amp; Target Catalog</a> with real citations. Major corrections:
+      sibeprenlimab and atacicept are now FDA-approved; narsoplimab's Phase 3 failed; added atrasentan,
+      povetacicept, felzartamab, ravulizumab, finerenone.</li>
+    </ul>
+    <div class="tag-row">
+      <span class="pill">meta</span>
+      <span class="pill">wiki</span>
+      <span class="pill">landscape verified</span>
+      <span class="pill research">hard problems</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Newest conversations are added at the bottom with the next sequential number. Topic content is filed on the
+    relevant page — this log is only the chronological index.
+  </div>
+</main>
+<script src="wiki.js"></script>
+</body>
+</html>

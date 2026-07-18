@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix the Gd-IgA1 Glycosylation Defect — IgAN Research Wiki</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="sidebar"></nav>
+
+<main class="main">
+  <h1>Hard Problem · Fix the Gd-IgA1 Glycosylation Defect</h1>
+  <p class="subtitle">Correcting the root cause — the C1GALT1/Cosmc under-galactosylation that makes IgA1 pathogenic.</p>
+  <p class="updated">Last updated: 2026-07-18 · Promoted to its own page in <a href="conversations.html#c2">Conversation 2</a></p>
+
+  <div class="callout q">
+    <strong>Why this page exists:</strong> of our two aims, "fix the malformed protein at the source" is the most
+    novel and least-drugged. Every approved/late-stage therapy acts <em>downstream</em> of the glycosylation defect
+    (reducing production, or blocking complement) — none restores normal galactosylation. This page tracks the
+    biology and any route to actually correcting it. Sources are listed at the
+    <a href="#sources">bottom of this page</a> and in <a href="references.html#c2">References</a>.
+  </div>
+
+  <h2>The defect, precisely</h2>
+  <p>IgA1 has a unique hinge region carrying O-linked glycans. Normally, <strong>C1GALT1</strong> (core 1
+  β1,3-galactosyltransferase) adds galactose to the initiating GalNAc; its activity depends on the chaperone
+  <strong>Cosmc</strong> (C1GALT1C1). In IgAN, IgA1-secreting cells show <em>reduced</em> effective galactosylation,
+  leaving GalNAc exposed — the epitope for anti-glycan autoantibodies (<a href="mechanism.html">Hit 2</a>).</p>
+
+  <h2>Why galactosylation is reduced (candidate causes)</h2>
+  <ul>
+    <li><strong>Cytokine-driven enzyme dysregulation.</strong> Mucosal cytokines — notably <strong>IL-6</strong>
+    and <strong>IL-4</strong> — shift glycosyltransferase balance (down-regulating C1GALT1 and/or up-regulating the
+    competing sialyltransferase ST6GalNAc-II), reducing net galactosylation. This is attractive because it is
+    potentially <em>reversible</em> by modulating the signal rather than the gene.</li>
+    <li><strong>Reduced Cosmc activity / expression</strong> — often epigenetic (promoter hypermethylation) rather
+    than mutational, again suggesting reversibility.</li>
+    <li><strong>Genetic susceptibility.</strong> GWAS implicate loci in mucosal immunity and IgA production;
+    heritability of serum Gd-IgA1 levels is well documented, pointing to an intrinsic, cell-autonomous component
+    of the IgA1-producing B/plasma cell.</li>
+    <li><strong>Mucosal / microbiome signals.</strong> The defect tracks with aberrant mucosal (gut/tonsillar)
+    immune activation, linking it to the same APRIL/BAFF axis targeted in <a href="aim-prevention.html">Aim 1</a>.</li>
+  </ul>
+
+  <h2>Routes to "fixing" it</h2>
+  <table>
+    <thead><tr><th>Strategy</th><th>Idea</th><th>Maturity</th></tr></thead>
+    <tbody>
+      <tr><td>Cytokine blockade</td><td>Block IL-6/IL-4 signaling to restore glycosyltransferase balance and lower Gd-IgA1</td><td><span class="pill research">Concept / early</span></td></tr>
+      <tr><td>Reduce the producing cells</td><td>APRIL/BAFF inhibition &amp; Nefecon lower Gd-IgA1 output (indirect "fix")</td><td><span class="pill phase3">Clinical (Aim 1)</span></td></tr>
+      <tr><td>Restore Cosmc/C1GALT1</td><td>Reverse epigenetic silencing or supply enzyme activity in IgA1-producing cells</td><td><span class="pill research">Preclinical concept</span></td></tr>
+      <tr><td>Clear the malformed protein</td><td>Biologic/glycan-targeted clearance of circulating Gd-IgA1 or its immune complexes</td><td><span class="pill research">Concept</span></td></tr>
+      <tr><td>In-silico design</td><td>Design a binder to the exposed GalNAc hinge or to C1GALT1 (AlphaFold/ESM/docking) to probe tractability</td><td><span class="pill research">We can prototype</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Why it's hard:</strong> glycosylation is set intracellularly during antibody synthesis, so a
+    "corrector" must act inside the right B/plasma cells without disturbing global O-glycosylation elsewhere
+    (safety). That target-tissue specificity is the core challenge — and the reason the field has largely settled
+    for lowering Gd-IgA1 <em>quantity</em> instead of restoring its <em>quality</em>.</p>
+  </div>
+
+  <h2>Biomarker angle</h2>
+  <p>Serum <strong>Gd-IgA1</strong> (and anti-Gd-IgA1 autoantibody titer) is a leading non-invasive biomarker —
+  elevated in IgAN, heritable, and a plausible pharmacodynamic readout for any therapy aimed at this node. Useful
+  for us as the measurable endpoint when evaluating candidate "fixes."</p>
+
+  <h2>Linked open questions</h2>
+  <ul>
+    <li>Is the defect predominantly epigenetic (correctable) vs. hard-wired genetic?</li>
+    <li>Can a therapy restore galactosylation <em>quality</em> rather than just reduce Gd-IgA1 <em>quantity</em>?</li>
+    <li>Would clearing existing Gd-IgA1/immune complexes help patients with established disease?</li>
+  </ul>
+  <p>See <a href="open-questions.html">Open Questions</a> and compare with the downstream
+  <a href="hardproblem-fibrosis.html">fibrosis-reversal problem</a>.</p>
+
+  <h2 id="sources">Key sources</h2>
+  <ul>
+    <li>GWAS for serum Gd-IgA1 (C1GALT1 rs13226913, C1GALT1C1/Cosmc rs5910940) —
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5328405/">PMC5328405</a></li>
+    <li>C1GALT1 variation &amp; IgA1 galactosylation (JASN) —
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5491291/">PMC5491291</a></li>
+    <li>Cytokines (IL-6, IL-4) alter IgA1 O-glycosylation via C1GalT1 / ST6GalNAc-II —
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3931088/">PMC3931088</a></li>
+    <li>IL-6/STAT3 phosphatase control of Gd-IgA1 overproduction —
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9675727/">PMC9675727</a></li>
+    <li>TGF-β1 down-regulates C1GalT1 &amp; Cosmc —
+      <a href="https://pubmed.ncbi.nlm.nih.gov/28035353/">PubMed 28035353</a></li>
+    <li>Cosmc promoter DNA methylation in pediatric IgAN —
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4315396/">PMC4315396</a></li>
+    <li>Gut microbiome regulates hypoglycosylated IgA1 via TLR4 —
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11427068/">PMC11427068</a></li>
+    <li>TLR9 → APRIL/IL-6 aberrant IgA glycosylation —
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7372907/">PMC7372907</a></li>
+    <li>B-cell <em>c1galt1</em> knockout: Gd-IgA1 without glomerular deposition (necessary-but-not-sufficient) —
+      <a href="https://www.sciencedirect.com/science/article/pii/S0085253826002358">Kidney Int</a></li>
+    <li>Sibeprenlimab Phase 2 (NEJM) —
+      <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2305635">NEJMoa2305635</a></li>
+    <li>Gd-IgA1 biomarker meta-analysis —
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10475574/">PMC10475574</a></li>
+  </ul>
+</main>
+<script src="wiki.js"></script>
+</body>
+</html>
