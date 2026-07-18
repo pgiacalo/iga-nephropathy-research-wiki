@@ -63,11 +63,32 @@
     </div>
   </div>
 
+  <div class="conv" id="c3">
+    <div class="date">2026-07-18 · Conversation 3</div>
+    <h3>Published to GitHub + added an auto-linking glossary</h3>
+    <ul>
+      <li>Published the wiki as a public GitHub repository (<code>iga-nephropathy-research-wiki</code>) on the
+      user's account.</li>
+      <li>Rebuilt the <a href="glossary.html">Glossary</a> as a data-driven system: ~70 plain-language definitions
+      in <code>glossary-data.js</code>, a partial-match search box (searches terms <em>and</em> definitions), and an
+      auto-linker that turns every glossary term into a link to its definition wherever it appears across the wiki.</li>
+      <li>Added the standing directive to define non-common medical terms for lay readers (in <code>CLAUDE.md</code>).</li>
+    </ul>
+    <div class="tag-row">
+      <span class="pill">meta</span>
+      <span class="pill">glossary</span>
+      <span class="pill">github</span>
+      <span class="pill">accessibility</span>
+    </div>
+  </div>
+
   <div class="footer">
     Newest conversations are added at the bottom with the next sequential number. Topic content is filed on the
     relevant page — this log is only the chronological index.
   </div>
 </main>
 <script src="wiki.js"></script>
+<script src="glossary-data.js"></script>
+<script src="glossary.js"></script>
 </body>
 </html>

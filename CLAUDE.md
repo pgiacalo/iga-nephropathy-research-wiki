@@ -14,6 +14,9 @@ This project is about **IgA nephropathy (Berger's disease)** and the search for 
 ### Surface corrections, suggestions, and better ideas
 Whenever a conversation gives me reason to offer a **correction**, a **suggestion**, or a **better idea, concept, or theory**, I must tell the user about it — do not silently go along. Present each one under its **own section heading** with a short **intro remark** that makes clear what the point is and why it matters. Example headings: `## Correction — …`, `## Suggestion — …`, `## Better idea — …`. If there are none for a given exchange, say nothing extra.
 
+### Define medical terms for non-specialists
+Whenever a medical/technical term appears that a non-medical reader wouldn't commonly understand, **add a glossary entry** for it (plain-language definition) in `wiki/glossary-data.js`. The glossary auto-links every term (and its aliases) to its definition wherever it appears across the wiki, so adding one entry lights it up everywhere — no manual linking needed. Include alternate spellings/abbreviations in `aliases`.
+
 ### Maintain the project wiki
 After any conversation with **significant discussion, discovery, question, or decision**, update the HTML wiki in [`wiki/`](wiki/index.html) *in the same turn*. See conventions below.
 
@@ -37,7 +40,9 @@ Organize content **by topic, logically — never chronologically.** The only chr
 | `hardproblem-fibrosis.html` | Deep-dive: reversing established kidney fibrosis |
 | `therapies.html` | Drug & target catalog (cross-cutting table) |
 | `open-questions.html` | Running research backlog / hypotheses |
-| `glossary.html` | Terms & abbreviations |
+| `glossary.html` | Glossary UI — search box + list, rendered from `glossary-data.js` |
+| `glossary-data.js` | **Single source of truth for the glossary** (terms, aliases, definitions) |
+| `glossary.js` | Renders the glossary + partial-match search, and auto-links terms on every other page |
 | `references.html` | All external links, grouped by conversation |
 | `conversations.html` | Dated chronological index of conversations |
 | `changelog.html` | Audit trail of wiki changes |
@@ -56,7 +61,7 @@ Promote a topic to its own page (like the two `hardproblem-*` pages) once it acc
 5. **Add a dated entry to `changelog.html`** summarizing what changed in the wiki.
 6. **Update `search-index.js`** if you added a page or changed what a page is about (add/adjust its keywords).
 7. **Bump the `Last updated:` date** in the `.updated` line of every page you changed.
-8. Add new terms to `glossary.html` as they come up.
+8. Add new medical terms to `glossary-data.js` as they come up (see the "Define medical terms" directive). Every content page loads `glossary-data.js` + `glossary.js` after `wiki.js`; new pages must include those two script tags too.
 
 ### Conventions
 - The sidebar nav lives ONLY in `wiki.js`. Each page just has an empty `<nav class="sidebar"></nav>` and ends with `<script src="wiki.js"></script>`. To add a page to the nav, add one line to the `NAV` array in `wiki.js` — never hand-edit nav in individual pages.
