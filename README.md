@@ -1,5 +1,7 @@
 # IgA Nephropathy Research Wiki
 
+### 🌐 Live site: **https://pgiacalo.github.io/iga-nephropathy-research-wiki/**
+
 A living knowledge base on **IgA nephropathy (Berger's disease)** and the search for promising treatments, focused on two aims:
 
 1. **Prevention** — fix the malformed protein (galactose-deficient IgA1, *Gd-IgA1*) or stop it from becoming malformed.
@@ -7,7 +9,9 @@ A living knowledge base on **IgA nephropathy (Berger's disease)** and the search
 
 ## Viewing the wiki
 
-Open [`wiki/index.html`](wiki/index.html) in any web browser. The wiki is a self-contained set of cross-linked HTML files — no build step, no server, no external dependencies.
+**Online:** browse the [live site](https://pgiacalo.github.io/iga-nephropathy-research-wiki/) (served via GitHub Pages).
+
+**Locally:** open [`wiki/index.html`](wiki/index.html) in any web browser. The wiki is a self-contained set of cross-linked HTML files — no build step, no server, no external dependencies.
 
 ### Contents
 - **Disease Mechanism** — the 4-hit model, from Gd-IgA1 to fibrosis

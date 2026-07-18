@@ -75,12 +75,15 @@
     function flashHash() {
       var id = decodeURIComponent(location.hash.slice(1));
       if (!id) return;
-      var el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ block: "center" });
+      // The list is rendered by JS, so the browser's own jump-to-anchor on load
+      // misses it. Scroll after the next paint, once the entry exists.
+      requestAnimationFrame(function () {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ block: "start", behavior: "auto" });
         el.classList.add("gloss-flash");
-        setTimeout(function () { el.classList.remove("gloss-flash"); }, 2000);
-      }
+        setTimeout(function () { el.classList.remove("gloss-flash"); }, 2200);
+      });
     }
     flashHash();
     window.addEventListener("hashchange", flashHash);

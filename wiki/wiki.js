@@ -42,6 +42,15 @@
 
   var nav = document.querySelector('nav.sidebar');
   if (nav) nav.innerHTML = html;
+
+  // Reinforce scroll-to-anchor on initial load, in case layout shifted after
+  // the browser's native jump. (Dynamic pages like the glossary do their own.)
+  if (location.hash) {
+    requestAnimationFrame(function () {
+      var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (el) el.scrollIntoView({ block: "start" });
+    });
+  }
 })();
 
 function wikiSearchSubmit(e) {
